@@ -1,0 +1,21 @@
+{
+	"base":{
+		"Interval":500
+	},
+
+	"schedules":{
+		"enableRoom":{
+			"cron":"*/5 * * * * *",
+			"fun":"../sc/enableRoom.js",
+			"switch":true
+		},
+		"disableRoom":{
+			"cron":"*/5 * * * * *",
+			"fun":"../sc/disableRoom.js",
+			"switch":false
+		}
+
+	}
+
+
+}
