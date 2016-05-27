@@ -1,14 +1,23 @@
 
 
 
-module.exports = function(){
+module.exports = function(sc,job,isStop){
 	enableRoom();
+	if( isStop === true ){
+		stop( sc,job );
+	}else{
+		run( sc,job );
+	}
 };
 
 
-function enableRoom()
+
+function run()
 {
+    console.log( 'run ' + 20002 );
+}
 
-    console.log( 200021 );
-
+function stop()
+{
+	console.log( 'stop ' + 20002 );
 }
