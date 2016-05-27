@@ -1,14 +1,24 @@
 {
   "name": "sdb-schedule",
   "version": "1.0.0",
-  "description": "定时执行一些处理",
+  "description": "schedule framework",
   "main": "./lib/yz_schedule.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "shudingbo",
-  "license": "ISC",
+   "keywords": [
+    "schedule"
+  ],
+  "author": {
+	"name":"shudingbo",
+	"email":"shudingbo@qq.com"
+  },
+  "license": "MIT",
   "dependencies": {
     "node-schedule": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shudingbo/sdb-schedule.git"
   }
 }
