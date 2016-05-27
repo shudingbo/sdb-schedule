@@ -6,12 +6,12 @@
 	"schedules":{
 		"enableRoom":{
 			"cron":"*/5 * * * * *",
-			"fun":"../sc/enableRoom.js",
+			"fun":"./sc/enableRoom.js",
 			"switch":true
 		},
 		"disableRoom":{
 			"cron":"*/5 * * * * *",
-			"fun":"../sc/disableRoom.js",
+			"fun":"./sc/disableRoom.js",
 			"switch":false
 		}
 

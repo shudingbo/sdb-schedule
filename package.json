@@ -2,7 +2,7 @@
   "name": "sdb-schedule",
   "version": "1.0.0",
   "description": "定时执行一些处理",
-  "main": "app.js",
+  "main": "./lib/yz_schedule.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
