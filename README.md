@@ -4,7 +4,7 @@
 
 Using npm:
 
-    $ npm install cppMsg
+    $ npm install sdb-schedule
 
 To run the tests:
 
@@ -18,7 +18,7 @@ This module provides follow function:
 
 ## configuration
   Edit the config.json, 
-
+```json
 {
 	"schedules":{
 		"enableRoom":{
@@ -34,7 +34,7 @@ This module provides follow function:
 
 	}
 }
-
+```json
 Format :
  <task name> :{"cron":<cron string>, "fun":<callback>, "switch":<true:false,control task on/off>} 
 
