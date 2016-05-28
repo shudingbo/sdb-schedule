@@ -1,4 +1,7 @@
-# This is schedule framework
+
+# Simple schedule framework
+[中文看这里]
+
 ## Installation
 
 Using npm:
@@ -10,11 +13,12 @@ To run the tests:
     $ node test.js
 
 ## Description
-This is schedule framework base **[node-schedule](https://github.com/node-schedule/node-schedule)**. Through a simple configuration, you can control schedule jobs.
+This is schedule framework base **[node-schedule]**. Through a simple configuration, you can control schedule jobs.
 This module provides follow function:
 
-  - Can dynamic control tasks on/off/update
-  - Config and task script can In any position
+ - Cron format string config schedule
+ - Can dynamic control tasks on/off/update
+ - Config and task script can In any position
 
 ## Configuration
   Config is josn file, defined the schedules,as shown below:
@@ -170,5 +174,6 @@ Copyright 2016+ shudingbo
 
 Licensed under the **[MIT License]**.
 
-
+[node-schedule]: https://github.com/node-schedule/node-schedule
 [cron-parser]: https://github.com/harrisiirak/cron-parser
+[中文看这里]:https://github.com/shudingbo/sdb-schedule/wiki/Chinese
