@@ -1,5 +1,5 @@
-# This is schedule framework
-## Installation
+# 简洁计划任务框架
+## 安装
 
 Using npm:
 
@@ -9,15 +9,17 @@ To run the tests:
 
     $ node test.js
 
-## Description
-This is schedule framework base **[node-schedule](https://github.com/node-schedule/node-schedule)**. Through a simple configuration, you can control schedule jobs.
-This module provides follow function:
+## 描述
 
-  - Can dynamic control tasks on/off/update
-  - Config and task script can In any position
+本模块是一个简洁的计划任务框架模块（基于**[node-schedule]**）。 你只需要简单的配置，就可以获得功能强大的计划任务控制功能。此模块提供了下列功能：
+ - 使用 Cron 格式 灵活的配置计划任务
+ - 可以在执行中，动态控制计划任务的开/关/更新
+ - 任务的配置脚本可以放在系统任意位置。
 
-## Configuration
-  Config is josn file, defined the schedules,as shown below:
+## 配置
+
+  配置文件是一个json格式的文件，定义了每个计划任务，结构大致如下:
+
 ```javascript
 {
 	"schedules":{
@@ -170,5 +172,5 @@ Copyright 2016+ shudingbo
 
 Licensed under the **[MIT License]**.
 
-
+[node-schedule]: https://github.com/node-schedule/node-schedule
 [cron-parser]: https://github.com/harrisiirak/cron-parser
