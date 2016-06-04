@@ -1,21 +1,22 @@
 {
   "name": "sdb-schedule",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "schedule framework",
   "main": "./lib/yz_schedule.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "keywords": [
+  "keywords": [
     "schedule"
   ],
   "author": {
-	"name":"shudingbo",
-	"email":"shudingbo@qq.com"
+    "name": "shudingbo",
+    "email": "shudingbo@qq.com"
   },
   "license": "MIT",
   "dependencies": {
-    "node-schedule": "^1.1.0"
+    "node-schedule": "^1.1.0",
+    "redis": "^2.6.1"
   },
   "repository": {
     "type": "git",
