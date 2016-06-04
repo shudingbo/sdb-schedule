@@ -20,6 +20,13 @@ This module provides follow function:
  - Can dynamic control tasks on/off/update
  - Config and task script can In any position
 
+### Changelog
+#### 1.0.3
+Refactor the code, separate configuration management module. Now can easy support. Are now able to support more than one type of configuration file management more easily. For example, using the **File/Redis/SQL** Server storage management plan task configuration File.
+ - Add File Config module support.
+
+
+
 ## Configuration
   Config is josn file, defined the schedules,as shown below:
 ```javascript
