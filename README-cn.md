@@ -83,6 +83,22 @@ var app = sc({
  - **cfg_drv**，指定使用的配置文件管理模块；
  - **cfg_opt**，指定配置文件管理模块的参数，会在构造配置文件管理模块式，作为参数传入。
 
+#### FileDrv ( File Configuration Manager Module)
+Using file manager the configuration. 
+
+cfg_opt:
+ - **cfgFile**,Config file path;
+
+
+#### RedisDrv ( Redis Configuration Manager Module)
+Using Redis manager the configuration.
+
+cfg_opt:
+ - **host**, redis server's host;
+ - **port**, redis server's port;
+ - **keyPre**, redis key's pre;
+ - **checkInterval**, check config interval, mill sec;
+
 
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
@@ -93,7 +109,7 @@ I am schedule framework, have two part:Frame and JobPlugin.
  Work flow like this:
 
  1. `var sc = require("sdb-schedule"); `  Require module sdb-schedules.
- 1. `var app = sc( './config.json');` Construct sc object and give her ths config file path.
+ 1. `var app = sc( { 'cfg_drv':'filedrv.js','cfg_opt':{} });` Construct sc object and give her ths config file path.
  1. `app.run();` Call run() start work.
  1. `app.stop();`  Stop work.
 

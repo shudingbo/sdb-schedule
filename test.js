@@ -19,7 +19,8 @@ var app = sc({
 				'cfg_opt':{
 					'host':"127.0.0.1",
 					'port':6379,
-					'keyPre':'sdb:schedule'
+					'keyPre':'sdb:schedule',
+					'checkInterval':5000
 				}
 			});
 
