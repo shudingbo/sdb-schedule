@@ -19,11 +19,11 @@ To run the tests:
 ### 更新记录
 #### 1.0.3
 重构代码，独立配置文件管理为单独的模块。现在能够更容易支持多个类型的配置文件管理。例如 使用 File/Redis/sql Server 存储管理计划任务的配置文件。
- - 增加 文件类型 配置文件管理模块。
+ - 增加 文件类型(FileDrv.js) 配置文件管理模块。
 
-## 配置
-
-  配置文件是一个json格式的文件，定义了每个计划任务，结构大致如下:
+## 配置 及 配置 管理
+### 配置文件
+  配置文件采用json格式，定义了每个计划任务，结构大致如下:
 
 ```javascript
 {
@@ -42,11 +42,11 @@ To run the tests:
 }
 ```
 
-All job defined in **schedules** fields, each job define as json object,must have 3 fields:(cron,fun and switch).
+所有的工作任务在**schedules**域进行定义，每一个任务都有一个json对象定义，必须包含下面3个域(cron，fun和switch)。
 
-  - **cron** , define job cron string.
-  - **fun**  , is the node function module, called when the time of arrival
-  - **switch**, switch,told sdb-schedules on/off this job
+  - **cron** , 定义任务的 cron 格式的字符串。
+  - **fun**  , 是一个nodejs函数模块，在计划任务触发时调用。
+  - **switch**, 开关,告诉 sdb-schedules 是开还是关。
 
 The cron format consists of:
 ```
@@ -68,6 +68,22 @@ implementations should work just fine.
 
 [cron-parser] is used to parse crontab instructions.
 
+### 配置文件管理
+自1.0.3版本起，配置文件管理作为了单独的模块，现在缺省提供了 文件类配置文件管理模块(FileDrv)，您可以根据需求扩展配置文件管理模块，例如使用redis 管理配置模块。
+我们可以在创建sdb-schedule时通过传入参数，指定使用的配置管理模块：
+
+```javascript
+var app = sc({ 
+				'cfg_drv':'filedrv.js',
+				'cfg_opt':{
+					'cfgFile':"./config.json"
+				}
+			});
+```
+ - **cfg_drv**，指定使用的配置文件管理模块；
+ - **cfg_opt**，指定配置文件管理模块的参数，会在构造配置文件管理模块式，作为参数传入。
+
+
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
 
@@ -82,11 +98,11 @@ I am schedule framework, have two part:Frame and JobPlugin.
  1. `app.stop();`  Stop work.
 
 ### Frame
- [run()](#idFunRun), start schedules.
- [stop()](#idFunStop), stop schedules.
+ [run()](#idFunRun), 启动计划任务管理.
+ [stop()](#idFunStop), 停止计划任务管理.
  [updateJob(name,scCfg)](#idFunUpdateJob), add/update schedule job.
- [runJob(name)](#idFunRunJob), run job by name.
- [stopJob(name)](#idFunStopJob), stop job by name.
+ [runJob(name)](#idFunRunJob), 运行指定名称的工作任务.
+ [stopJob(name)](#idFunStopJob), 停止指定名称的工作任务.
 
 ####<span id="idFunRun">run</span>####
 Run all job that *switch* is `true`.  

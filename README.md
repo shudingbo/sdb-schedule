@@ -27,8 +27,9 @@ Refactor the code, separate configuration management module. Now can easy suppor
 
 
 
-## Configuration
-  Config is josn file, defined the schedules,as shown below:
+## Configuration AND Configuration file Manager
+### Configuration
+  Configuration file using the json format, defined the schedules,as shown below:
 ```javascript
 {
 	"schedules":{
@@ -71,6 +72,24 @@ of the month) are not supported. Most other features supported by popular cron
 implementations should work just fine.
 
 [cron-parser] is used to parse crontab instructions.
+
+### configure manager
+Since version 1.0.3, profile management as a separate module, the default now provides a kind of configuration file management module (FileDrv), you can extend the configuration file management module based on the requirements, such as using redis configuration management module.
+We can create the sdb-schedule by the incoming parameters, using the configuration management module specified:
+
+```javascript
+var app = sc({ 
+				'cfg_drv':'filedrv.js',
+				'cfg_opt':{
+					'cfgFile':"./config.json"
+				}
+			});
+```
+ - **cfg_drv**,Specify the use of configuration file management module;
+ - **cfg_opt**,Specify the parameters of the configuration file management module, when  construct configuration file management module,passed it as parameter.
+
+
+
 
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
