@@ -21,6 +21,10 @@ This module provides follow function:
  - Config and task script can In any position
 
 ### Changelog
+
+#### 1.0.4
+Add RedisDrv(Redis configuration manager module),using [node-redis];
+
 #### 1.0.3
 Refactor the code, separate configuration management module. Now can easy support. Are now able to support more than one type of configuration file management more easily. For example, using the **File/Redis/SQL** Server storage management plan task configuration File.
  - Add File Config module support.
@@ -97,7 +101,7 @@ cfg_opt:
 
 
 #### RedisDrv ( Redis Configuration Manager Module)
-Using Redis manager the configuration.
+Using Redis manager the configuration. [node-redis]
 
 cfg_opt:
  - **host**, redis server's host;
@@ -217,4 +221,5 @@ Licensed under the **[MIT License]**.
 
 [node-schedule]: https://github.com/node-schedule/node-schedule
 [cron-parser]: https://github.com/harrisiirak/cron-parser
+[node-redis]:https://github.com/NodeRedis/node_redis
 [中文看这里]:https://github.com/shudingbo/sdb-schedule/wiki/Chinese

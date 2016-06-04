@@ -17,6 +17,9 @@ To run the tests:
  - 任务的配置脚本可以放在系统任意位置。
 
 ### 更新记录
+#### 1.0.4
+实现 Redisdrv(redis 配置文件管理模块)，使用[node-redis]。
+
 #### 1.0.3
 重构代码，独立配置文件管理为单独的模块。现在能够更容易支持多个类型的配置文件管理。例如 使用 File/Redis/sql Server 存储管理计划任务的配置文件。
  - 增加 文件类型(FileDrv.js) 配置文件管理模块。
@@ -210,4 +213,5 @@ Copyright 2016+ shudingbo
 Licensed under the **[MIT License]**.
 
 [node-schedule]: https://github.com/node-schedule/node-schedule
+[node-redis]:https://github.com/NodeRedis/node_redis
 [cron-parser]: https://github.com/harrisiirak/cron-parser
