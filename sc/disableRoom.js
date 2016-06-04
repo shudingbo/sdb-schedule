@@ -2,7 +2,8 @@
 
 
 module.exports = function(sc,job,isStop){
-	enableRoom();
+	//console.log( job );
+
 	if( isStop === true ){
 		stop( sc,job );
 	}else{
@@ -14,10 +15,10 @@ module.exports = function(sc,job,isStop){
 
 function run()
 {
-    console.log( 'run ' + 20002 );
+    console.log( 'disableRoom run ' + 20002 );
 }
 
 function stop()
 {
-	console.log( 'stop ' + 20002 );
+	console.log( 'disableRoom stop ' + 20002 );
 }

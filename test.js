@@ -3,7 +3,12 @@
 
 
 var sc = require("./lib/yz_schedule.js"); // -- you code here require is 'sdb_schedule'
-var app = sc( './config.json');
+var app = sc( { 
+				'cfg_drv':'filedrv.js',
+				'cfg_opt':{
+					'cfgFile':"./config.json"
+				}
+			});
 
 
 
@@ -15,5 +20,8 @@ process.on('SIGINT', function () {
 
 
 app.run();
+
+
+
 
 

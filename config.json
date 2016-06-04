@@ -7,12 +7,13 @@
 		"enableRoom":{
 			"cron":"*/5 * * * * *",
 			"fun":"./sc/enableRoom.js",
-			"switch":true
+			"switch":false
 		},
 		"disableRoom":{
-			"cron":"*/5 * * * * *",
+			"cron":"*/2 * * * * *",
 			"fun":"./sc/disableRoom.js",
-			"switch":false
+			"switch":true
+
 		}
 
 	}
