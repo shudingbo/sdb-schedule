@@ -113,8 +113,8 @@ cfg_opt:
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
 
- - **Frame**, admin the Job Plugin.
- - **Job Plugin **, Implement the schedule Job work.
+ - **[Frame](#frame)**, admin the Job Plugin.
+ - **[Job Plugin](#jobplugin)**, Implement the schedule Job work.
 
  Work flow like this:
 
@@ -124,21 +124,21 @@ I am schedule framework, have two part:Frame and JobPlugin.
  1. `app.stop();`  Stop work.
 
 ### Frame
- [run()](#idFunRun), start schedules.
- [stop()](#idFunStop), stop schedules.
- [updateJob(name,scCfg)](#idFunUpdateJob), add/update schedule job.
- [runJob(name)](#idFunRunJob), run job by name.
- [stopJob(name)](#idFunStopJob), stop job by name.
+ - [run()](#run), start schedules.
+ - [stop()](#stop), stop schedules.
+ - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
+ - [runJob(name)](#runjob), run job by name.
+ - [stopJob(name)](#stopjob), stop job by name.
 
-####<span id="idFunRun">run</span>####
+#### run
 Run all job that *switch* is `true`.  
 No parames.
 
-####<span id="idFunStop">stop</span>####
+#### stop
 Stop all job.
 No parames.
 
-####<span id="idFunUpdateJob">updateJob</span>####
+#### updateJob
 `updateJob(name,scCfg )`
 
  - **name**, Job's name, string.
@@ -156,17 +156,17 @@ No parames.
  - If job not exist, add new job,but can't run it ,you must manual run it( call runJob );
 
 
-####<span id="idFunRunJob">runJob</span>####
+#### runJob
 `runJob(name)`
 
  - **name**, Job's name, string.
 
-####<span id="idFunStopJob">stopJob</span>####
+#### stopJob
 `stopJob(name)`
 
  - **name**, Job's name, string.
 
-### Job Plugin
+### JobPlugin
 Job Plugin,is node module, export as function has three parames.
 `module.exports = function(sc,job,isStop){}`
 
