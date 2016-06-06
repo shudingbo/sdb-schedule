@@ -17,6 +17,12 @@ To run the tests:
  - 任务的配置脚本可以放在系统任意位置。
 
 ### 更新记录
+#### 1.0.6
+修复 #1
+
+#### 1.0.5
+修复 使用RedisDrv时，Job启动计时记录不正确的问题。
+
 #### 1.0.4
 实现 Redisdrv(redis 配置文件管理模块)，使用[node-redis]。
 
@@ -106,8 +112,8 @@ cfg_opt:
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
 
- - **Frame**, admin the Job Plugin.
- - **Job Plugin **, Implement the schedule Job work.
+ - **[Frame](#frame)**, admin the Job Plugin.
+ - **[Job Plugin](#jobplugin)**, Implement the schedule Job work.
 
  Work flow like this:
 
@@ -117,21 +123,21 @@ I am schedule framework, have two part:Frame and JobPlugin.
  1. `app.stop();`  Stop work.
 
 ### Frame
- [run()](#idFunRun), 启动计划任务管理.
- [stop()](#idFunStop), 停止计划任务管理.
- [updateJob(name,scCfg)](#idFunUpdateJob), add/update schedule job.
- [runJob(name)](#idFunRunJob), 运行指定名称的工作任务.
- [stopJob(name)](#idFunStopJob), 停止指定名称的工作任务.
+ [run()](#run), 启动计划任务管理.
+ [stop()](#stop), 停止计划任务管理.
+ [updateJob(name,scCfg)](#updatejob), add/update schedule job.
+ [runJob(name)](#runjob), 运行指定名称的工作任务.
+ [stopJob(name)](#stopjob), 停止指定名称的工作任务.
 
-####<span id="idFunRun">run</span>####
+#### Run
 Run all job that *switch* is `true`.  
 No parames.
 
-####<span id="idFunStop">stop</span>####
+#### stop
 Stop all job.
 No parames.
 
-####<span id="idFunUpdateJob">updateJob</span>####
+#### updateJob
 `updateJob(name,scCfg )`
 
  - **name**, Job's name, string.
@@ -149,17 +155,17 @@ No parames.
  - If job not exist, add new job,but can't run it ,you must manual run it( call runJob );
 
 
-####<span id="idFunRunJob">runJob</span>####
+#### runJob
 `runJob(name)`
 
  - **name**, Job's name, string.
 
-####<span id="idFunStopJob">stopJob</span>####
+#### stopJob
 `stopJob(name)`
 
  - **name**, Job's name, string.
 
-### Job Plugin
+### JobPlugin
 Job Plugin,is node module, export as function has three parames.
 `module.exports = function(sc,job,isStop){}`
 

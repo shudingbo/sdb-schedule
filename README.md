@@ -21,6 +21,11 @@ This module provides follow function:
  - Config and task script can In any position
 
 ### Changelog
+#### 1.0.6
+fixed #1
+
+#### 1.0.5
+fixed using RedisDrv，Job startTime/stopTime can't record.
 
 #### 1.0.4
 Add RedisDrv(Redis configuration manager module),using [node-redis];
