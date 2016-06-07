@@ -166,24 +166,25 @@ No parames.
  - **name**, Job's name, string.
 
 ### JobPlugin
-Job Plugin,is node module, export as function has three parames.
+Job Plugin,是一个单独的node模块，直接作为函数导出，必须包含三个参数：
 `module.exports = function(sc,job,isStop){}`
 
- - ** sc **, instance of sdb-schedule, you can call function
- - ** job **, this job info
- - ** isStop **, true means this is stop callback,you can clear resource and so on.
+ - **sc**, sdb-schedule 对象实例，你可以通过它调用 提供的相关函数；
+ - **job**, json对象，当前任务的相关信息；
+ - **isStop**, boolean类型，true 表示是任务停止启动的回调；false 表示是任务运行的回调.
+ - ***return 'msg string'***, 字符串，函数可以返回一个字符串，用于标记任务执行的具体情况。 如果使用了 RedisDrv 配置管理器R，这个消息将会被记录到redis，您可以通过查询redis，检测任务具体的执行信息。
 
-The following is a complete example, example demonstrates the following features:
+下面是一个完整的例子，例子说明了下列特色：
 
- - Dynamically change the task properties
- - Stop the task
+ - 动态改变任务属性
+ - 自己停止自己
 
 ```javascript
 module.exports = function(sc,job,isStop){
 	if( isStop === true ){
-		stop( sc,job );
+		return stop( sc,job );
 	}else{
-		run( sc,job );
+		return run( sc,job );
 	}
 };
 
@@ -203,11 +204,14 @@ function run( sc,job)
 			"switch":true
 		});
 	}
+
+    return 'Run OK';
 }
 
 function stop(sc,job)
 {
 	console.log( 'stop ' + 20002222 );
+    return;
 }
 
 ```

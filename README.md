@@ -156,6 +156,7 @@ No parames.
     }
 ```
  Update Job，
+
  - If cron or fun has change,and the job is running,then restart job.
  - If job not run,only change the config.
  - If job not exist, add new job,but can't run it ,you must manual run it( call runJob );
@@ -175,9 +176,10 @@ No parames.
 Job Plugin,is node module, export as function has three parames.
 `module.exports = function(sc,job,isStop){}`
 
- - ** sc **, instance of sdb-schedule, you can call function
- - ** job **, this job info
- - ** isStop **, true means this is stop callback,you can clear resource and so on.
+ - **sc**, {object},instance of sdb-schedule, you can call function
+ - **job**, {object},this job info
+ - **isStop**,{boolean} ,true means this is stop callback,you can clear resource and so on.
+ - ***return 'msg string'***, {string},function can return string msg. If you using RedisDrv,msg will record to redis,you can look it.
 
 The following is a complete example, example demonstrates the following features:
 
@@ -187,9 +189,9 @@ The following is a complete example, example demonstrates the following features
 ```javascript
 module.exports = function(sc,job,isStop){
 	if( isStop === true ){
-		stop( sc,job );
+		return stop( sc,job );
 	}else{
-		run( sc,job );
+		return run( sc,job );
 	}
 };
 
@@ -209,11 +211,13 @@ function run( sc,job)
 			"switch":true
 		});
 	}
+    return 'Run OK';
 }
 
 function stop(sc,job)
 {
 	console.log( 'stop ' + 20002222 );
+    return;
 }
 
 ```
