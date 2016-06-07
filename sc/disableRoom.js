@@ -5,20 +5,24 @@ module.exports = function(sc,job,isStop){
 	//console.log( job );
 
 	if( isStop === true ){
-		stop( sc,job );
+		return stop( sc,job );
 	}else{
-		run( sc,job );
+		return run( sc,job );
 	}
 };
 
 
-
+var g_cnt = 0;
 function run()
 {
-    console.log( 'disableRoom run ' + 20002 );
+	var tmp = 'disableRoom run 20002:' + g_cnt;
+    console.log( tmp );
+    g_cnt++;
+    return tmp;
 }
 
 function stop()
 {
 	console.log( 'disableRoom stop ' + 20002 );
+	return;
 }

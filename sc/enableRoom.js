@@ -3,9 +3,9 @@
 
 module.exports = function(sc,job,isStop){
 	if( isStop === true ){
-		stop( sc,job );
+		return stop( sc,job );
 	}else{
-		run( sc,job );
+		return run( sc,job );
 	}
 };
 
@@ -29,7 +29,7 @@ function run( sc,job)
 		});
 	}
 	
-	
+	return 'Run OK';
 }
 
 function stop(sc,job)
