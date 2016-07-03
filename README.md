@@ -2,6 +2,8 @@
 # Simple schedule framework
 [中文看这里]
 
+![Setting][idSet]
+
 ## Installation
 
 Using npm:
@@ -19,6 +21,11 @@ This module provides follow function:
  - Cron format string config schedule
  - Can dynamic control tasks on/off/update
  - Config and task script can In any position
+
+## APP(UI)
+Now we implement an app [sdb-schedule-ui],using admin schedules( only support redis drv ),you can [download] it.
+- Base Electron
+
 
 ### Changelog
 #### 1.0.6
@@ -232,3 +239,7 @@ Licensed under the **[MIT License]**.
 [cron-parser]: https://github.com/harrisiirak/cron-parser
 [node-redis]:https://github.com/NodeRedis/node_redis
 [中文看这里]:https://github.com/shudingbo/sdb-schedule/wiki/Chinese
+[sdb-schedule-ui]: https://github.com/shudingbo/sdb-schedule-ui
+[download]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/sdb-schedule-ui.7z
+[idMain]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/main.jpg  "Main"
+[idSet]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/setting.jpg  "Setting"

@@ -1,4 +1,7 @@
 # 简洁计划任务框架
+
+![Setting][idSet]
+
 ## 安装
 
 Using npm:
@@ -15,6 +18,10 @@ To run the tests:
  - 使用 Cron 格式 灵活的配置计划任务
  - 可以在执行中，动态控制计划任务的开/关/更新
  - 任务的配置脚本可以放在系统任意位置。
+
+## APP(UI)
+现在我们实现了一个APP [sdb-schedule-ui],用于管理schedule( 只支持 redis drv ),你可以在这里下载 [download].
+- 基于 Eletron 实现
 
 ### 更新记录
 #### 1.0.6

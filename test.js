@@ -15,14 +15,14 @@ var app = sc({
 
 /* redis config Manager*/
 var app = sc({ 
-				'cfg_drv':'redisdrv.js',
-				'cfg_opt':{
-					'host':"127.0.0.1",
-					'port':6379,
-					'keyPre':'sdb:schedule',
-					'checkInterval':5000
-				}
-			});
+	'cfg_drv':'redisdrv.js',
+	'cfg_opt':{
+		'host':"127.0.0.1",
+		'port':6379,
+		'keyPre':'sdb:schedule',
+		'checkInterval':5000
+	}
+});
 
 
 
