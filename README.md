@@ -28,6 +28,9 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.0.8
+- Implement #4,Can Edid job's config.
+
 #### 1.0.6
 fixed #1
 
@@ -141,6 +144,7 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
  - [runJob(name)](#runjob), run job by name.
  - [stopJob(name)](#stopjob), stop job by name.
+ - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
 
 #### run
 Run all job that *switch* is `true`.  
@@ -178,6 +182,12 @@ No parames.
 `stopJob(name)`
 
  - **name**, Job's name, string.
+
+#### getConfig
+`getConfig(name)`
+
+ - **name**, Job's name, string.
+ - **return**, json's format object.
 
 ### JobPlugin
 Job Plugin,is node module, export as function has three parames.

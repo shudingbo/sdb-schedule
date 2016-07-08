@@ -24,6 +24,9 @@ To run the tests:
 - 基于 Eletron 实现
 
 ### 更新记录
+#### 1.0.8
+- 实现功能 #4,可以单独编辑Job的配置
+
 #### 1.0.6
 修复 #1
 
@@ -130,11 +133,12 @@ I am schedule framework, have two part:Frame and JobPlugin.
  1. `app.stop();`  Stop work.
 
 ### Frame
- [run()](#run), 启动计划任务管理.
- [stop()](#stop), 停止计划任务管理.
- [updateJob(name,scCfg)](#updatejob), add/update schedule job.
- [runJob(name)](#runjob), 运行指定名称的工作任务.
- [stopJob(name)](#stopjob), 停止指定名称的工作任务.
+ - [run()](#run), 启动计划任务管理.
+ - [stop()](#stop), 停止计划任务管理.
+ - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
+ - [runJob(name)](#runjob), 运行指定名称的工作任务.
+ - [stopJob(name)](#stopjob), 停止指定名称的工作任务.
+ - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
 
 #### Run
 Run all job that *switch* is `true`.  
@@ -171,6 +175,12 @@ No parames.
 `stopJob(name)`
 
  - **name**, Job's name, string.
+
+#### getConfig
+`getConfig(name)`
+
+ - **name**, Job's name, string.
+ - **return**, json's format object.
 
 ### JobPlugin
 Job Plugin,是一个单独的node模块，直接作为函数导出，必须包含三个参数：
