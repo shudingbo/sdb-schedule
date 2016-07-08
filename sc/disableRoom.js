@@ -13,15 +13,17 @@ module.exports = function(sc,job,isStop){
 
 
 var g_cnt = 0;
-function run()
+function run(sc, job)
 {
 	var tmp = 'disableRoom run 20002:' + g_cnt;
-    console.log( tmp );
+	var myCfg = sc.getConfig(job['name']);
+
+    console.log( tmp,' --myCfg:',myCfg.roomID );
     g_cnt++;
     return tmp;
 }
 
-function stop()
+function stop(sc, job)
 {
 	console.log( 'disableRoom stop ' + 20002 );
 	return;
