@@ -242,3 +242,7 @@ Licensed under the **[MIT License]**.
 [node-schedule]: https://github.com/node-schedule/node-schedule
 [node-redis]:https://github.com/NodeRedis/node_redis
 [cron-parser]: https://github.com/harrisiirak/cron-parser
+[sdb-schedule-ui]: https://github.com/shudingbo/sdb-schedule-ui
+[download]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/sdb-schedule-ui.7z
+[idMain]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/main.jpg  "Main"
+[idSet]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/setting.jpg  "Setting"
