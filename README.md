@@ -27,7 +27,18 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 - Base Electron
 
 
+## Plugin 
+### scp-cleanRedis （ auto Clean redis data）
+ Clean Redis Data. You Can See document from [scp-cleanRedis].
+ - support regex
+ - support clean ZSET,List  
+
+
+
 ### Changelog
+#### 1.0.9
+- support require module in ./node_modules Path.  Using module in node_modules folder,you should only set the module's name in Fun Param.
+
 #### 1.0.8
 - Implement #4,Can Edid job's config.
 
@@ -248,7 +259,8 @@ Licensed under the **[MIT License]**.
 [node-schedule]: https://github.com/node-schedule/node-schedule
 [cron-parser]: https://github.com/harrisiirak/cron-parser
 [node-redis]:https://github.com/NodeRedis/node_redis
-[中文看这里]:https://github.com/shudingbo/sdb-schedule/wiki/Chinese
+[scp-cleanRedis]: https://github.com/shudingbo/scp-cleanRedis
+[中文看这里]:https://github.com/shudingbo/sdb-schedule/blob/master/README-cn.md
 [sdb-schedule-ui]: https://github.com/shudingbo/sdb-schedule-ui
 [download]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/sdb-schedule-ui.7z
 [idMain]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/main.jpg  "Main"

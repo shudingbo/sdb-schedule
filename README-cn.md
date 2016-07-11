@@ -23,7 +23,16 @@ To run the tests:
 现在我们实现了一个APP [sdb-schedule-ui],用于管理schedule( 只支持 redis drv ),你可以在这里下载 [download].
 - 基于 Eletron 实现
 
+## 插件
+### 自动清理Redis数据插件( scp-cleanRedis )
+自动清理Redis数据。参见文档 [scp-cleanRedis]。
+- 支持正则表达式
+- 支持 清理 ZSET,LIST
+
 ### 更新记录
+#### 1.0.9
+- 支持包含 node_modules 目录下的模块，配置时只需要把 Fun 参数配置为 模块名称。 
+
 #### 1.0.8
 - 实现功能 #4,可以单独编辑Job的配置
 
@@ -246,3 +255,4 @@ Licensed under the **[MIT License]**.
 [download]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/sdb-schedule-ui.7z
 [idMain]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/main.jpg  "Main"
 [idSet]: https://github.com/shudingbo/sdb-public/blob/master/sdb-schedule-ui/setting.jpg  "Setting"
+[scp-cleanRedis]: https://github.com/shudingbo/scp-cleanRedis

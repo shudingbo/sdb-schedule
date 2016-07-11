@@ -1,6 +1,6 @@
 {
   "name": "sdb-schedule",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "schedule framework",
   "main": "./lib/yz_schedule.js",
   "scripts": {
