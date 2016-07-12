@@ -36,6 +36,9 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.0.10
+- Fix Bug, when Job cron parse error, stop job should exception.
+
 #### 1.0.9
 - support require module in ./node_modules Path.  Using module in node_modules folder,you should only set the module's name in Fun Param.
 
