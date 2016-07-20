@@ -20,6 +20,8 @@ function run(sc, job)
 
     console.log( tmp,' --myCfg:',myCfg.roomID );
     g_cnt++;
+
+	//sc.updateMsg( job['name'], "haha" );
     return tmp;
 }
 

@@ -36,6 +36,9 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.0.11
+- Add update Msg function, now job can call sc.updateMsg  set the message.
+
 #### 1.0.10
 - Fix Bug, when Job cron parse error, stop job should exception.
 
@@ -158,7 +161,8 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
  - [runJob(name)](#runjob), run job by name.
  - [stopJob(name)](#stopjob), stop job by name.
- - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
+ - [getConfig(name)](#getConfig), get the job's config.
+ - [updateMsg(jobname,msg)](#updateMsg), update job'run message.
 
 #### run
 Run all job that *switch* is `true`.  
@@ -202,6 +206,13 @@ No parames.
 
  - **name**, Job's name, string.
  - **return**, json's format object.
+
+#### updateMsg
+`updateMsg(jobname,msg)`
+
+ - **name**, Job's name, string.
+ - **msg**, the string message.
+
 
 ### JobPlugin
 Job Plugin,is node module, export as function has three parames.

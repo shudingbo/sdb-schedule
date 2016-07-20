@@ -30,6 +30,9 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+#### 1.0.11
+- 增加 updateMsg 函数, 现在 Job 可以在工作流程里调用 sc.updateMsg 来更新 Job 的运行消息。
+
 #### 1.0.10
 - 修复Bug，当设置错误的 cron 字符串时，通知任务会导致异常.
 
@@ -151,6 +154,7 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [runJob(name)](#runjob), 运行指定名称的工作任务.
  - [stopJob(name)](#stopjob), 停止指定名称的工作任务.
  - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
+ - [updateMsg(jobname,msg)](#updateMsg), 更新工作任务的运行状态消息.
 
 #### Run
 Run all job that *switch* is `true`.  
@@ -193,6 +197,14 @@ No parames.
 
  - **name**, Job's name, string.
  - **return**, json's format object.
+
+#### updateMsg
+`updateMsg(jobname,msg)`
+
+ - **name**, Job's name, string.
+ - **msg**, the string message.
+
+
 
 ### JobPlugin
 Job Plugin,是一个单独的node模块，直接作为函数导出，必须包含三个参数：
