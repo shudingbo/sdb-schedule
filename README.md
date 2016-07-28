@@ -36,6 +36,9 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.1.2
+- Fix bug: Next run time display error.
+
 #### 1.1.1
 * Sub Job
 	> Job can add subjob ( updateSubJob ). If subJob not used,you must remove subjob(removeSubJob) by Job.
