@@ -30,6 +30,11 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+#### 1.1.1
+* Sub Job （子Job）
+	> Job 支持增加 子Job的功能（updateSubJob ）,Job 可以创建 多个 子Job，子Job可以通过函数 removeSubJob 进行移除。
+    > Job 和 子Job 共用一个处理模块
+
 #### 1.1.0
 - 改变 Job 的导出函数参数定义, isStop 参数 更新为 runStep
   - 0, 初始化 job
@@ -163,6 +168,8 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [stopJob(name)](#stopjob), 停止指定名称的工作任务.
  - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
  - [updateMsg(jobname,msg)](#updateMsg), 更新工作任务的运行状态消息.
+ - [updateSubJob(name,scCfg)](#updateSubJob), add/update schedule sub job.
+ - [removeSubJob(name)](#removeSubJob), remove sub job.
 
 #### Run
 Run all job that *switch* is `true`.  
@@ -212,6 +219,23 @@ No parames.
  - **name**, Job's name, string.
  - **msg**, the string message.
 
+#### updateSubJob
+`updateSubJob(name,scCfg )`
+
+ - **name**, Sub Job's name, string.
+ - **scCfg**, Job's cfg.
+```javascript
+    {
+    	"corn":<* * * * * * *>,
+        "switch":true|false
+		"parent":<parent job's name>
+    }
+```
+
+#### removeSubJob
+`removeSubJob(name )`
+
+ - **name**, Sub Job's name, string.
 
 
 ### JobPlugin

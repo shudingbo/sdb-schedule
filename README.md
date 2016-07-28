@@ -36,6 +36,11 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.1.1
+* Sub Job
+	> Job can add subjob ( updateSubJob ). If subJob not used,you must remove subjob(removeSubJob) by Job.
+	> Job and subJob to use the same function
+
 #### 1.1.0
 - Change job export function's parame, isStop change as runStep
   - 0, init job
@@ -170,6 +175,8 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [stopJob(name)](#stopjob), stop job by name.
  - [getConfig(name)](#getConfig), get the job's config.
  - [updateMsg(jobname,msg)](#updateMsg), update job'run message.
+ - [updateSubJob(name,scCfg)](#updateSubJob), add/update schedule sub job.
+ - [removeSubJob(name)](#removeSubJob), remove sub job.
 
 #### run
 Run all job that *switch* is `true`.  
@@ -219,6 +226,24 @@ No parames.
 
  - **name**, Job's name, string.
  - **msg**, the string message.
+
+#### updateSubJob
+`updateSubJob(name,scCfg )`
+
+ - **name**, Sub Job's name, string.
+ - **scCfg**, Job's cfg.
+```javascript
+    {
+    	"corn":<* * * * * * *>,
+        "switch":true|false
+		"parent":<parent job's name>
+    }
+```
+
+#### removeSubJob
+`removeSubJob(name )`
+
+ - **name**, Sub Job's name, string.
 
 
 ### JobPlugin
