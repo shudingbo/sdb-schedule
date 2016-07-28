@@ -30,6 +30,14 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+#### 1.1.0
+- 改变 Job 的导出函数参数定义, isStop 参数 更新为 runStep
+  - 0, 初始化 job
+  - 1, 运行 job
+  - 2, 停止 job
+- 针对 redis 驱动，增加Job的下y运行时间属性。 
+
+
 #### 1.0.11
 - 增加 updateMsg 函数, 现在 Job 可以在工作流程里调用 sc.updateMsg 来更新 Job 的运行消息。
 

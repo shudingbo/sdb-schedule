@@ -36,6 +36,13 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.1.0
+- Change job export function's parame, isStop change as runStep
+  - 0, init job
+  - 1, run job
+  - 2, stop job 
+- Add nexRunTime attr in job status for redis drv.
+
 #### 1.0.11
 - Add update Msg function, now job can call sc.updateMsg  set the message.
 
