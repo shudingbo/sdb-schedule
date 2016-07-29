@@ -16,6 +16,8 @@ module.exports = function(sc,job, runStep){
 		if( runStep === 1 ){
 			var parName = job.parent['name'];
 			sc.updateMsg( parName, '停止房间！' );
+			sc.stopJob( job['name'],'关闭房间' );
+			return {};
 		}
 	}
 
@@ -48,7 +50,7 @@ function run( sc,job)
 		//});
 		
 		sc.updateSubJob( 'subJob',{
-			"cron": (new Date()).valueOf()+15000,
+			"cron": (new Date()).valueOf()+10000,
 			"switch":true,
 			"parent":job['name']
 		});
@@ -57,7 +59,7 @@ function run( sc,job)
 
 	}
 
-	if( g_cnt == 7 ){
+	if( g_cnt == 15 ){
 		sc.removeSubJob('subJob');
 	}
 

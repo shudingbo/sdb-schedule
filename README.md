@@ -36,6 +36,10 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.1.3
+- change stopJob ,add msg parame.
+- Fix bug
+
 #### 1.1.2
 - Fix bug: Next run time display error.
 
@@ -175,7 +179,7 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [stop()](#stop), stop schedules.
  - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
  - [runJob(name)](#runjob), run job by name.
- - [stopJob(name)](#stopjob), stop job by name.
+ - [stopJob(name,msg)](#stopjob), stop job by name.
  - [getConfig(name)](#getConfig), get the job's config.
  - [updateMsg(jobname,msg)](#updateMsg), update job'run message.
  - [updateSubJob(name,scCfg)](#updateSubJob), add/update schedule sub job.
@@ -214,9 +218,10 @@ No parames.
  - **name**, Job's name, string.
 
 #### stopJob
-`stopJob(name)`
+`stopJob(name,msg)`
 
  - **name**, Job's name, string.
+ - **msg**, stop message, string.
 
 #### getConfig
 `getConfig(name)`

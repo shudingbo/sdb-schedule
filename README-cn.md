@@ -30,6 +30,13 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+#### 1.1.3
+- 改变 stopJob 函数,增加 msg 参数.
+- 修复Bug
+
+#### 1.1.2
+- 修复Bug，下一次运行时间显示错误
+
 #### 1.1.1
 * Sub Job （子Job）
 	> Job 支持增加 子Job的功能（updateSubJob ）,Job 可以创建 多个 子Job，子Job可以通过函数 removeSubJob 进行移除。
@@ -165,7 +172,7 @@ I am schedule framework, have two part:Frame and JobPlugin.
  - [stop()](#stop), 停止计划任务管理.
  - [updateJob(name,scCfg)](#updatejob), add/update schedule job.
  - [runJob(name)](#runjob), 运行指定名称的工作任务.
- - [stopJob(name)](#stopjob), 停止指定名称的工作任务.
+ - [stopJob(name,msg)](#stopjob), 停止指定名称的工作任务.
  - [getConfig(name)](#getConfig), 获取名称的工作任务的配置.
  - [updateMsg(jobname,msg)](#updateMsg), 更新工作任务的运行状态消息.
  - [updateSubJob(name,scCfg)](#updateSubJob), add/update schedule sub job.
@@ -203,9 +210,10 @@ No parames.
  - **name**, Job's name, string.
 
 #### stopJob
-`stopJob(name)`
+`stopJob(name,msg)`
 
  - **name**, Job's name, string.
+ - **msg**, stop message, string.
 
 #### getConfig
 `getConfig(name)`
