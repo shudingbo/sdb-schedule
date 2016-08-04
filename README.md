@@ -36,6 +36,9 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 1.1.5
+- Fix bug: Next Run Time calc error,if job run time < 1ms 
+
 #### 1.1.3
 - change stopJob ,add msg parame.
 - Fix bug

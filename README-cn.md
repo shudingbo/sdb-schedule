@@ -30,6 +30,9 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+#### 1.1.5
+- Fix bug: 任务执时间 < 1 m, Next Run Time calc error 
+
 #### 1.1.3
 - 改变 stopJob 函数,增加 msg 参数.
 - 修复Bug
