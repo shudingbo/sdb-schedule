@@ -15,6 +15,8 @@ To run the tests:
     $ node test.js
 
 ## Description
+ver 2.0.0 need node 8.9.0
+
 This is schedule framework base **[node-schedule]**. Through a simple configuration, you can control schedule jobs.
 This module provides follow function:
 
@@ -36,6 +38,11 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+#### 2.0.0
+- use ioredis replace node-redis
+- using ES6 syntax
+
+
 #### 1.1.5
 - Fix bug: Next Run Time calc error,if job run time < 1ms 
 

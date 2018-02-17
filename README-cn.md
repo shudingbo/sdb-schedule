@@ -13,6 +13,7 @@ To run the tests:
     $ node test.js
 
 ## 描述
+	ver 2.0.0 至少需要 node 8.9.0
 
 本模块是一个简洁的计划任务框架模块（基于**[node-schedule]**）。 你只需要简单的配置，就可以获得功能强大的计划任务控制功能。此模块提供了下列功能：
  - 使用 Cron 格式 灵活的配置计划任务
@@ -30,6 +31,11 @@ To run the tests:
 - 支持 清理 ZSET,LIST
 
 ### 更新记录
+
+#### 2.0.0
+- 使用 ioredis 替换 node-redis
+- 使用 ES6 语法
+
 #### 1.1.5
 - Fix bug: 任务执时间 < 1 m, Next Run Time calc error 
 

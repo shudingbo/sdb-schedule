@@ -1,6 +1,6 @@
 {
   "name": "sdb-schedule",
-  "version": "1.1.5",
+  "version": "2.0.0",
   "description": "schedule framework",
   "main": "./lib/yz_schedule.js",
   "scripts": {
@@ -16,12 +16,14 @@
   "license": "MIT",
   "dependencies": {
     "cron-parser": "1.1.0",
-    "async": "^2.0.0-rc.6",
-    "node-schedule": "^1.1.0",
-    "redis": "^2.6.1"
+    "ioredis": "^3.2.2",
+    "node-schedule": "^1.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/shudingbo/sdb-schedule.git"
+  },
+  "engines": {
+    "node": ">= 8.9.0"
   }
 }
