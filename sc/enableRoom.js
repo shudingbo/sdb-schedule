@@ -1,8 +1,8 @@
 
-var CornParser = require('cron-parser');
+const CornParser = require('cron-parser');
 
 module.exports = function(sc,job, runStep){
-	console.log( '------- in ',job['name']);
+	sc.logger.info( '------- in ',job['name']);
 
 	if( job['name'] !== 'subJob' ){
 		if( runStep === 0 ){
@@ -14,7 +14,7 @@ module.exports = function(sc,job, runStep){
 		}
 	}else{
 		if( runStep === 1 ){
-			var parName = job.parent['name'];
+			let parName = job.parent['name'];
 			sc.updateMsg( parName, '停止房间！' );
 			sc.stopJob( job['name'],'关闭房间' );
 			return {};
@@ -24,19 +24,21 @@ module.exports = function(sc,job, runStep){
 };
 
 
-var g_cnt = 0;
+let g_cnt = 0;
 
 function init( sc, job ){
-	console.log( job['name'] + ': Next run Time: ' + CornParser.parseExpression(job['cron']).next() );
+	sc.logger.info( job['name'] + ': Next run Time: ' + CornParser.parseExpression(job['cron']).next() );
 }
 
 
 function run( sc,job)
 {
-    console.log( 'run ' + 20002222 );
+	let {app} = sc;
+
+  sc.logger.info( `run 20002222 , ${app.test++}` );
 	g_cnt++;
 	
-	console.log( job['name'] + "  " + g_cnt +" : " + job['cron'] );
+	sc.logger.info( job['name'] + "  " + g_cnt +" : " + job['cron'] );
 	if( g_cnt > 1000 ){
 		sc.stopJob( job['name'] );  // example stop this job
 	}
@@ -50,7 +52,7 @@ function run( sc,job)
 		//});
 		
 		sc.updateSubJob( 'subJob',{
-			"cron": (new Date()).valueOf()+10000,
+			"cron": Date.now()+10000,
 			"switch":true,
 			"parent":job['name']
 		});
@@ -68,5 +70,5 @@ function run( sc,job)
 
 function stop(sc,job)
 {
-	console.log( 'stop ' + 20002222 );
+	sc.logger.info( 'stop ' + 20002222 );
 }

@@ -1,6 +1,6 @@
 
 
-var CornParser = require('cron-parser');
+const CornParser = require('cron-parser');
 
 module.exports = function(sc,job, runStep){
 	if( runStep === 0 ){
@@ -13,26 +13,26 @@ module.exports = function(sc,job, runStep){
 };
 
 
-var g_cnt = 0;
+let g_cnt = 0;
 
 function init( sc, job ){
-	console.log( job['name'] + 'Next run Time' + CornParser.parseExpression(job['cron']).next() );
+	sc.logger.info( job['name'] + 'Next run Time' + CornParser.parseExpression(job['cron']).next() );
 }
 
 function run(sc, job)
 {
-	var tmp = 'disableRoom run 20002:' + g_cnt;
-	var myCfg = sc.getConfig(job['name']);
+	let tmp = 'disableRoom run 20002:' + g_cnt;
+	let myCfg = sc.getConfig(job['name']);
 
-    console.log( tmp,' --myCfg:',myCfg.roomID );
-    g_cnt++;
+	sc.logger.info( tmp,' --myCfg:',myCfg.roomID );
+  g_cnt++;
 
 	//sc.updateMsg( job['name'], "haha" );
-    return tmp;
+  return tmp;
 }
 
 function stop(sc, job)
 {
-	console.log( 'disableRoom stop ' + 20002 );
+	sc.logger.info( 'disableRoom stop ' + 20002 );
 	return;
 }

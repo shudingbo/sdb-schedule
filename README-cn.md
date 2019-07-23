@@ -32,6 +32,12 @@ To run the tests:
 
 ### 更新记录
 
+#### 2.0.1
+针对 模块的 可嵌入性 做了下列修改
+- 增加配置参数， logger，统一logger输出，方便嵌入其它组件
+- sc，增加参数 parModule，传入对象，方便模块使用，这个对象会传入各个 Job，方便Job使用. 可以在 <job>.js 里通过sc.app,调用parModule的数据
+- redis 驱动，增加 instanse 参数，可以使用外部传入的 redis 连接实例
+
 #### 2.0.0
 - 使用 ioredis 替换 node-redis
 - 使用 ES6 语法
@@ -136,12 +142,21 @@ implementations should work just fine.
 我们可以在创建sdb-schedule时通过传入参数，指定使用的配置管理模块：
 
 ```javascript
-var app = sc({ 
+let parModule = {
+	test:123456,
+};
+let logger = {
+	info:(msg)=>{ console.log('--- [sche info]:',msg); },
+	warn:(msg)=>{ console.log('--- [sche warn]:',msg); }
+};
+
+const app = sc({
 				'cfg_drv':'filedrv.js',
 				'cfg_opt':{
 					'cfgFile':"./config.json"
-				}
-			});
+				},
+				logger
+			},parModule);
 ```
  - **cfg_drv**，指定使用的配置文件管理模块；
  - **cfg_opt**，指定配置文件管理模块的参数，会在构造配置文件管理模块式，作为参数传入。
