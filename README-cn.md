@@ -34,9 +34,19 @@ To run the tests:
 
 #### 2.0.1
 针对 模块的 可嵌入性 做了下列修改
-- 增加配置参数， logger，统一logger输出，方便嵌入其它组件
-- sc，增加参数 parModule，传入对象，方便模块使用，这个对象会传入各个 Job，方便Job使用. 可以在 <job>.js 里通过sc.app,调用parModule的数据
-- redis 驱动，增加 instanse 参数，可以使用外部传入的 redis 连接实例
+- 增加配置参数
+ - **logger**，统一logger输出，方便嵌入其它组件
+ - redis驱动
+	- **instanse**, 可以使用存在的 redis 连接实例
+- sc构造函数，增加参数 parModule，传入对象，方便模块使用，这个对象会传入各个 Job，方便Job使用. 可以在 <job>.js 里通过sc.app,调用parModule的数据
+```
+const g_redis = { 
+	ins:null      // required, redis instanse
+};
+cfg_opt:{
+  instanse: g_redis
+}
+```
 
 #### 2.0.0
 - 使用 ioredis 替换 node-redis
@@ -176,7 +186,7 @@ cfg_opt:
  - **port**, redis server's port;
  - **keyPre**, redis key's pre;
  - **checkInterval**, check config interval, mill sec;
-
+ - **instanse**, for redis drv
 
 ## API
 I am schedule framework, have two part:Frame and JobPlugin.
@@ -186,8 +196,8 @@ I am schedule framework, have two part:Frame and JobPlugin.
 
  Work flow like this:
 
- 1. `var sc = require("sdb-schedule"); `  Require module sdb-schedules.
- 1. `var app = sc( { 'cfg_drv':'filedrv.js','cfg_opt':{} });` Construct sc object and give her ths config file path.
+ 1. `const sc = require("sdb-schedule"); `  Require module sdb-schedules.
+ 1. `const app = sc( { 'cfg_drv':'filedrv.js','cfg_opt':{} });` Construct sc object and give her ths config file path.
  1. `app.run();` Call run() start work.
  1. `app.stop();`  Stop work.
 
@@ -293,10 +303,11 @@ module.exports = function(sc,job,isStop){
 	}
 };
 
-var g_cnt = 0;
+let g_cnt = 0;
 function run( sc,job)
 {
-    console.log( 'run ' + 20002222 );
+	let {app} = sc;
+  console.log( 'run ' + 20002222, app.test );
 	g_cnt++;
 	console.log( job['name'] + "  " + g_cnt +" : " + job['cron'] );
 	if( g_cnt > 10 ){

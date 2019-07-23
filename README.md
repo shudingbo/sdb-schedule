@@ -38,6 +38,25 @@ Now we implement an app [sdb-schedule-ui],using admin schedules( only support re
 
 
 ### Changelog
+
+#### 2.0.1
+Increased module scalability, easier to use by other modules.
+- Configuration modify
+  - **logger**, at root configure, unified logger output, easy to embed other components
+  - redis drv config
+	 - **instanse**, at redis configure, Existing redis connection instances.
+- sc constructor, add parModule parameter, pass in object for convenience of module, this object will pass in each Job for convenience of Job. Data of parModule can be called through sc.app in < Job >.js
+
+```
+const g_redis = { 
+	ins:null      // required, redis instanse
+};
+cfg_opt:{
+  instanse: g_redis
+}
+```
+
+
 #### 2.0.0
 - use ioredis replace node-redis
 - using ES6 syntax
@@ -143,12 +162,21 @@ Since version 1.0.3, profile management as a separate module, the default now pr
 We can create the sdb-schedule by the incoming parameters, using the configuration management module specified:
 
 ```javascript
-var app = sc({
+let parModule = {
+	test:123456,
+};
+let logger = {
+	info:(msg)=>{ console.log('--- [sche info]:',msg); },
+	warn:(msg)=>{ console.log('--- [sche warn]:',msg); }
+};
+
+const app = sc({
 				'cfg_drv':'filedrv.js',
 				'cfg_opt':{
 					'cfgFile':"./config.json"
-				}
-			});
+				},
+				logger
+			},parModule);
 ```
  - **cfg_drv**,Specify the use of configuration file management module;
  - **cfg_opt**,Specify the parameters of the configuration file management module, when  construct configuration file management module,passed it as parameter.
@@ -169,6 +197,7 @@ cfg_opt:
  - **port**, redis server's port;
  - **keyPre**, redis key's pre;
  - **checkInterval**, check config interval, mill sec;
+ - **instanse**, for redis drv
 
 
 ## API
@@ -179,8 +208,8 @@ I am schedule framework, have two part:Frame and JobPlugin.
 
  Work flow like this:
 
- 1. `var sc = require("sdb-schedule"); `  Require module sdb-schedules.
- 1. `var app = sc( { 'cfg_drv':'filedrv.js','cfg_opt':{} });` Construct sc object and give her ths config file path.
+ 1. `const sc = require("sdb-schedule"); `  Require module sdb-schedules.
+ 1. `const app = sc( { 'cfg_drv':'filedrv.js','cfg_opt':{} });` Construct sc object and give her ths config file path.
  1. `app.run();` Call run() start work.
  1. `app.stop();`  Stop work.
 
@@ -287,10 +316,11 @@ module.exports = function(sc,job,isStop){
 	}
 };
 
-var g_cnt = 0;
+let g_cnt = 0;
 function run( sc,job)
 {
-    console.log( 'run ' + 20002222 );
+  let {app} = sc;
+  console.log( 'run ' + 20002222, app.test );
 	g_cnt++;
 	console.log( job['name'] + "  " + g_cnt +" : " + job['cron'] );
 	if( g_cnt > 10 ){

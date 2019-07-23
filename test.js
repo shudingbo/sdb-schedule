@@ -22,12 +22,10 @@ let logger = {
 // 		},
 // 		logger
 // 	}, parModule);
-
+/** end file config */
 
 /* redis config Manager*/
-
 const g_redis = { ins:null};
-
 const app = sc({
 	cfg_drv:'redisdrv.js',
 	cfg_opt:{
@@ -49,6 +47,8 @@ g_redis.ins = new ioredis( {
 g_redis.ins.on("error",function( err ){
 	logger.warn("redis Error " + err);
 });
+
+/** end redis config  */
 
 process.on('SIGINT', function () { 
 	console.log('Got SIGINT. exit.');
