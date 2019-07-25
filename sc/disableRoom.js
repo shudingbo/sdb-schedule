@@ -3,9 +3,9 @@
 const CornParser = require('cron-parser');
 
 module.exports = function(sc,job, runStep){
-	if( runStep === 0 ){
+	if( runStep === sc.jobStep.INIT ){
 		return init( sc,job );
-	}else if( runStep === 1 ){
+	}else if( runStep === sc.jobStep.RUN ){
 		return run( sc,job );
 	}else{
 		return stop( sc,job );

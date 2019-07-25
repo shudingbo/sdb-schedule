@@ -4,16 +4,16 @@ const CornParser = require('cron-parser');
 module.exports = function(sc,job, runStep){
 	sc.logger.info( '------- in ',job['name']);
 
-	if( job['name'] !== 'subJob' ){
-		if( runStep === 0 ){
+	if( job.name !== 'subJob' ){
+		if( runStep === sc.jobStep.INIT ){
 			return init( sc,job );
-		}else if( runStep === 1 ){
+		}else if( runStep === sc.jobStep.RUN ){
 			return run( sc,job );
 		}else{
 			return stop( sc,job );
 		}
 	}else{
-		if( runStep === 1 ){
+		if( runStep === sc.jobStep.RUN ){
 			let parName = job.parent['name'];
 			sc.updateMsg( parName, '停止房间！' );
 			sc.stopJob( job['name'],'关闭房间' );
